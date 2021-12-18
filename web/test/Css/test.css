@@ -1,0 +1,9 @@
+/* 堆排序 */
+#heap div{
+    display: flex
+}
+#heap span{
+    width: 100%;
+    text-align: center;
+    line-height: 70px;
+}

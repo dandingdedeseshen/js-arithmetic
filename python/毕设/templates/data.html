@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>结果</title>
+    <script src="{{url_for('static', filename = 'jquery.js')}}"></script>
+</head> 
+
+<style>
+    body {
+        background-image: url("{{url_for('static', filename = 'image/3.jpg')}}");
+        background-size: 100% 1200px;
+    }
+
+    h1{
+        text-align: center;
+    }
+    #box{
+        width: 90%;
+        min-width: 500px;
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .row{
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #f64f59;
+    }
+    .row > div{
+        color: white;
+        width: 15%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .row > .title{
+        text-align: left ;
+        width: 30%;
+    }
+    .row:nth-of-type(odd){
+        background-image: linear-gradient(to left , #12c2e9, #c471ed,#f64f59);
+    }
+    .row:nth-of-type(even){
+        background-image: linear-gradient(to right , #12c2e9, #c471ed,#f64f59);
+    }
+    #classBox{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .classify{
+        font-size: 20px;
+        color: white;
+    }
+    .classify:hover{
+        cursor: pointer;
+    }
+
+    a,h1{
+        color: tomato;
+    }
+    .hide{
+        display: none;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <h1>up主信息</h1>
+        <br>
+        <div id="classBox">
+            {%for i in up_data%}
+            <a href="http://localhost:8000/data/{{up_data[i]['name']}}{{aid}}" class="classify">{{up_data[i]['name']}}类视频有{{up_data[i]['count']}}个</a>
+            {% endfor %}
+        </div>
+        <h1>本次up主视频查询结果</h1>
+        <div class="row">
+            <div>视频编号</div> <div class="title" style="text-align: center;">视频名称</div> <div>评论数</div>
+            <div>爬取时间</div> <div>播放数</div> <div>弹幕数</div>
+            <div>点赞数</div> <div>收藏数</div> <div>硬币数</div>
+        </div>
+        {% for i in data%}
+        <div class="row">
+            <div>{{i['av']}}</div> <div class="title" style="text-align: center;">{{i['av_name']}}</div> <div>{{i['comment']}}</div>
+            <div>{{i['timer']}}</div> <div>{{i['play']}}</div> <div>{{i['danmu']}}</div>
+            <div>{{i['like_num']}}</div> <div>{{i['favorite']}}</div> <div>{{i['class_name']}}</div>
+        </div>
+        {% endfor %}
+        <a class="chart" href="http://localhost:8000/chart/">
+            查看该up主的视频统计图
+        </a>
+        <a class="chart" class="hide">
+            查看该up主的视频统计图
+        </a>
+</body>
+
+<script>
+    state = "{{state}}"
+
+    var chart = document.getElementsByClassName('chart')
+
+    if(state == 'no'){
+        chart[0].classList.remove('hide')
+        chart[1].classList.add('hide')
+    }
+    else{
+        chart[1].href = 'http://localhost:8000/chart/' + state
+        chart[1].classList.remove('hide')
+        chart[0].classList.add('hide')
+    }
+</script>
+
+</html>
