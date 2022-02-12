@@ -20,10 +20,11 @@ function binary_find(arr, goal) {
 
 // 冒泡排序 arrLength:10000 time:281 - 293
 function bubble_sort(arr) {
+    let isSort
     for (let i = 0; i < arr.length - 1; i++) {
-        let isSort = true //冒泡优化 如果内部循环没有执行过交换则证明该数组有序直接返回即可
+        isSort = true //冒泡优化 如果内部循环没有执行过交换则证明该数组有序直接返回即可
         for (let j = 0; j < arr.length - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+            if (arr[j] < arr[j + 1]) {
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
                 isSort = false
             }
@@ -46,24 +47,15 @@ function select_sort(arr) {
     }
 }
 // 插入排序 arrLength:10000 time:35 - 40
-let x = 0
 function insert_sort(arr) {
     for (let i = 1; i < arr.length; i++) {
-        // 这种循环形式和第二种差将近2倍？
-        let j = i
+        let j = i - 1
         const tmp = arr [i]
-        while (j >= 1 && arr[j - 1] < tmp){
-            arr[j] = arr[j - 1]
+        while (j >= 0 && arr[j] < tmp ){
+            arr[j + 1] = arr[j]
             j = j - 1
         } 
-        arr[j] = tmp 
-        // let j = i - 1
-        // const tmp = arr [i]
-        // while (j >= 0 && arr[j] < tmp ){
-        //     arr[j + 1] = arr[j]
-        //     j = j - 1
-        // } 
-        // arr[j + 1] = tmp 
+        arr[j + 1] = tmp 
     }
 }
 
@@ -202,9 +194,54 @@ function hill(arr,step){
     }
 }
 
+// 计数排序 arrLength:10000 time:7- 12
+function number_sort(arr){
+    let finallArr = []
+    for(let item of arr){
+        if(finallArr[item]){
+            finallArr[item]++
+        }else{
+            finallArr[item] = 1
+        }
+    }
+    console.log(finallArr)
+    arr.length = 0
+    for(let i = 0;i < finallArr.length;i++){
+        for(let j = 1;j <= finallArr[i];j++){
+            arr.push(i)
+        }
+    }
+}
+
+// 桶排序 arrLength:10000 time:16- 20
+function bocket_sort(arr1){
+    let finallArr = []
+    for(let item of arr1){
+        let i = parseInt(item / 1000)
+        if(finallArr[i]){
+            let j = finallArr[i].length - 1
+            while(j >= 0  && finallArr[i][j] > item){
+                finallArr[i][j + 1] = finallArr[i][j]
+                j --
+            }
+            finallArr[i][j + 1] = item
+        }else{
+            finallArr[i] = []
+            finallArr[i].push(item)
+        }
+    }
+    arr1.length = 0
+    for(let item of finallArr){
+        if(item&&item.length){
+            for(let i = 0; i < item.length; i ++){
+                arr1.push(item[i])
+            }
+        }
+    }
+}
 // let arr = creatRandomArr(10)
 // console.log(arr)
-// insert_sort(arr,1)
+// bocket_sort(arr,1)
 // console.log(arr)
 
 // 测试排序10000长度的数组所需时间
@@ -212,7 +249,7 @@ function test(sortFun) {
     let arr = []
     const arrLength = 10000
     for (let i = 0; i < arrLength; i++) {
-        arr.push(parseInt(Math.random() * arrLength))
+        arr.push(parseInt(Math.random() * 10000))
     }
     // let arr = creatRandomArr(10000)
     const beforeDate = new Date()
@@ -222,18 +259,4 @@ function test(sortFun) {
     console.log(arr)
     console.log(afterDate - beforeDate)
 }
-// test(insert_sort)
-// console.log(x)
-function fun(){
-    let arr = creatRandomArr(100000)
-    let j = 0
-    for(let i = 1;i < 100000;i++){
-       arr[j + 1] = arr[j]
-    }
-}
-
-const beforeDate = new Date()
-fun()
-const afterDate = new Date()
-
-console.log(afterDate - beforeDate)
+test(bocket_sort)
