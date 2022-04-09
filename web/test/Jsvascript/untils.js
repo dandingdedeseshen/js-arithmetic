@@ -50,3 +50,5 @@ function drawMaze(arr){
         }
     }
 }
+
+let l = console.log

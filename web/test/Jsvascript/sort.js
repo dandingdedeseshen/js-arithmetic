@@ -95,16 +95,16 @@ function fast_sort_run(arr){
 // 堆排序 arrLength:10000 time:8 - 13
 function heap_sort(arr){
     let j = arr.length - 1
-    let i = parseInt(j/2)
+    let i = Math.ceil(j / 2) - 1
     // 生成大根堆
     while(i >= 0){
         sift(arr,i,j)
         i--
     }
     // 挨个出数
-    while(j >= 0){
+    while(j > 0){
         [arr[0],arr[j]] = [arr[j],arr[0]]
-        sift(arr,0,j)
+        sift(arr,0,j - 1)
         j --
     }
 }
@@ -112,8 +112,8 @@ function heap_sort(arr){
 function sift(arr,topIndex,lastIndex){
     let i = topIndex;
     let j = i * 2 + 1
-    while(j < lastIndex){
-        if(arr[j] < arr[j+1]&&j+1 <= lastIndex){
+    while(j <= lastIndex){
+        if(arr[j] < arr[j+1] && j+1 <= lastIndex){
             j = j + 1
         }
         if(arr[i] < arr[j]){

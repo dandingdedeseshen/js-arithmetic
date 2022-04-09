@@ -3,3 +3,8 @@
 /python/github/
 /web/鲜花系统/venv/
 */__pycache__s
+/.idea/
+/android/Hello i18n/
+/android/test/
+/android/crm/uni_modules/
+/android/crm/.hbuilderx/

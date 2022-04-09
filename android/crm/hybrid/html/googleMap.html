@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>123</title>
+		<style type="text/css">
+			html {
+				height: 100%
+			}
+
+			body {
+				height: 100%;
+				margin: 0px;
+				padding: 0px
+			}
+
+			#container {
+				height: 100%
+			}
+		</style>
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=GhZEW2vTi4aERh3QWmeY81MtG4FXhbvh"></script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+		<script type="text/javascript">
+			// 初始化地图
+			let map = new BMapGL.Map("container");
+			// 创建地图实例 
+			let point = new BMapGL.Point(116.42, 39.82);
+			// 创建点坐标 
+			map.centerAndZoom(point, 15);
+			let arr = []
+			// 设置控件
+			let zoomCtrl = new BMapGL.ZoomControl(); //缩放
+			map.addControl(zoomCtrl);
+			map.addEventListener('click', function(e) {
+				arr.push([e.latlng.lng, e.latlng.lat])
+				var p1 = new BMapGL.Point(arr[arr.length - 1][0],arr[arr.length - 1][1]);
+				var p2 = new BMapGL.Point(arr[arr.length - 2][0],arr[arr.length - 2][1]);
+				var walking = new BMapGL.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+				walking.search(p1, p2);
+				let point = new BMapGL.Point(e.latlng.lng, e.latlng.lat); //生成标注
+				let marker = new BMapGL.Marker(point); // 创建标注实例   
+				map.addOverlay(marker);
+			});
+		</script>
+	</body>
+</html>
