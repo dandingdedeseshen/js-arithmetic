@@ -1,10 +1,41 @@
-[33mcommit f62c7e88bb5e6ce8c07afd13e4b9a93942f44b93[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+[33mcommit cd302cd6d5744ca20168b37e78d750e599bee034[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 9d4990a 850f60e
+Author: dandingdedeseshen <1392574566@qq,com>
+Date:   Sat May 7 13:47:05 2022 +0800
+
+    checkout 分支冲突测试-多文件
+
+[33mcommit 9d4990ac9f54f85f913571269973c296366421c4[m
+Author: dandingdedeseshen <1392574566@qq,com>
+Date:   Sat May 7 13:44:36 2022 +0800
+
+    checkout 分支冲突测试
+
+[33mcommit 850f60e47395e98577524dba5b2f57f319a46e7c[m
+Author: dandingdedeseshen <1392574566@qq,com>
+Date:   Sat May 7 13:43:27 2022 +0800
+
+    checkout 分支冲突测试
+
+[33mcommit 54fc22701baf26b2e561d7a3bb42c7b114241dbb[m
+Author: dandingdedeseshen <1392574566@qq,com>
+Date:   Sat May 7 13:42:24 2022 +0800
+
+    checkout 分支冲突测试
+
+[33mcommit 53fa2a30b331d6665be472613ce1e547a57dbc8b[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: dandingdedeseshen <1392574566@qq,com>
+Date:   Sat May 7 11:03:10 2022 +0800
+
+    test
+
+[33mcommit f62c7e88bb5e6ce8c07afd13e4b9a93942f44b93[m
 Author: dandingdedeseshen <1392574566@qq,com>
 Date:   Sat May 7 10:47:43 2022 +0800
 
     nuxt 密码鸡，部分项目路径去掉中文
 
-[33mcommit e4f8a70e1d5cd9d3e21619626b9efa71949783d0[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+[33mcommit e4f8a70e1d5cd9d3e21619626b9efa71949783d0[m
 Author: dandingdedeseshen <1392574566@qq,com>
 Date:   Sat Apr 9 17:15:35 2022 +0800
 
