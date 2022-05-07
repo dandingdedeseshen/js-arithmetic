@@ -1,10 +1,13 @@
-/其他/貌似是一个动态桌面/
-/web/git/30-seconds-of-code-master/
-/python/github/
-/web/鲜花系统/venv/
-*/__pycache__s
-/.idea/
-/android/Hello i18n/
-/android/test/
-/android/crm/uni_modules/
-/android/crm/.hbuilderx/
+venv/
+.idea/
+android/Hello i18n/
+android/test/
+uni_modules/
+.hbuilderx/
+.DS_Store
+node_modules/
+__pycache__/
+
+# 暂不提交
+# flowerManage/py/sql.py
+
