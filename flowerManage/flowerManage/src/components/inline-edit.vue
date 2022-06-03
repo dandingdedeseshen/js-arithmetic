@@ -216,5 +216,4 @@ export default{
 #inline-edit .el-table__header thead tr th{
     padding: 6px;
 }
-
 </style>

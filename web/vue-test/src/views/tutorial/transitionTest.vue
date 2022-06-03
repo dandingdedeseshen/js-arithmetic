@@ -1,6 +1,5 @@
 <template>
-  <div class="home" id="homeView">
-    <HelloWorld :style="{ 'font-size': '100px' }" />
+  <div class="home" id="transitionView">
     <button @click="addNum">改变</button>
     <transition-group tag='h1' name="list">
       <div v-for="item of arr" :key="item" class="list-item">
@@ -11,10 +10,9 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "HomeView",
+  name: "transitionTest",
   data() {
     return {
       num: 1,
@@ -33,21 +31,22 @@ export default {
       console.log(this.num);      
     },
   },
-  components: {
-    HelloWorld,
-  },
+  
 };
 </script>
 
 <style>
-#homeView .list-item {
+#transitionView .list-item {
   transition: transform 1s ease, opacity 1s ease;
   display: inline-block;
   margin-right: 10px;
 }
-#homeView .list-enter-from,
-#homeView .list-leave-to {
+#transitionView .list-enter-from,
+#transitionView .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
+}
+#transitionView .list-leave-active {
+  position: absolute;
 }
 </style>
