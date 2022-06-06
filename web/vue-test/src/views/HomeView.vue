@@ -19,15 +19,14 @@ export default {
     return {
       num: 1,
       arr : [3,6,9],
-      str : '123444',
+      arr2:[2222222,33333333]
     };
   },
-  mounted() {
-    const arr = [1,2,3]
-    const arr = [1,2,3]
-    const arr = [1,2,3]
-    const arr = [1,2,3]
-    const arr = [1,2,3]
+  created() {
+    let str = 123
+    let str = 123
+    let str = 123
+    let str = 123
   },
   methods: {
     addNum() {
