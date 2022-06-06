@@ -18,8 +18,16 @@ export default {
   data() {
     return {
       num: 1,
-      arr : [3,6,9]
+      arr : [3,6,9],
+      str : '123444',
     };
+  },
+  mounted() {
+    const arr = [1,2,3]
+    const arr = [1,2,3]
+    const arr = [1,2,3]
+    const arr = [1,2,3]
+    const arr = [1,2,3]
   },
   methods: {
     addNum() {
