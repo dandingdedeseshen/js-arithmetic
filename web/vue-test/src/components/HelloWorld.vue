@@ -21,4 +21,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+。出咯的{
+  是的发送到发生111
+}
 </style>
