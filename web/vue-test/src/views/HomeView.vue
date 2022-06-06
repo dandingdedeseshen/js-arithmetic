@@ -18,8 +18,15 @@ export default {
   data() {
     return {
       num: 1,
-      arr : [3,6,9]
+      arr : [3,6,9],
+      arr2:[2222222,33333333]
     };
+  },
+  created() {
+    let str = 123
+    let str = 123
+    let str = 123
+    let str = 123
   },
   methods: {
     addNum() {
