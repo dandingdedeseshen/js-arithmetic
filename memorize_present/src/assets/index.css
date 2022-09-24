@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  --font-color: #9151A6;
+  --border-color: #9151A6;
+  --basck-color: #9151A6;
+  --theme-color1: #0091FF;
+  --theme-color2:#CD3C10;
+}
+.disabled{
+  cursor:not-allowed !important;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background: #CD3C10;
+  border-radius: 3px;
+}
+/* 滚动条里面的小方块，能上下左右移动的那个 */
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: #0091FF;
+  opacity: .4;
+  border-radius: 3px;
+}
+
+/* 滚动条整体部分
+  ::-webkit-scrollbar 
+  滚动条里面的小方块，能上下左右移动的那个
+  ::-webkit-scrollbar-thumb  
+  滚动条的轨道（里面装有Thumb）
+  ::-webkit-scrollbar-track  
+  滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+  ::-webkit-scrollbar-button 
+  内层轨道，滚动条中间部分（除去）
+  ::-webkit-scrollbar-track-piece 
+  边角，即两个滚动条的交汇处
+  ::-webkit-scrollbar-corner 
+  两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+  ::-webkit-resizer  */
