@@ -6,7 +6,6 @@ uni_modules/
 .hbuilderx/
 .DS_Store
 node_modules/
-github/
 __pycache__/
 
 # 暂不提交
