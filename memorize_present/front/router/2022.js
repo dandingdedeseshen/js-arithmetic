@@ -8,6 +8,11 @@ const routes = [
         path: 'birthday',
         name: 'birthday',
         component: () => import('@/views/2022/birthdayGift')
+      },
+      {
+        path: 'hundredDays',
+        name: 'hundredDays',
+        component: () => import('@/views/2022/hundredDays')
       }
     ]
   },
