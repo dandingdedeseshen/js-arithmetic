@@ -8,5 +8,6 @@ import ElementPlus from 'element-plus'
 import "./assets/index.css";         // 公共样式
 import './assets/font/iconfont.css'  // 字体
 import 'element-plus/dist/index.css' // element样式
+import 'animate.css'                 // 动画库
 
 createApp(App).use(store).use(router).use(ElementPlus).mount('#app')

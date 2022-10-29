@@ -7,7 +7,10 @@ const routes = [
       {
         path: 'birthday',
         name: 'birthday',
-        component: () => import('@/views/2022/birthdayGift')
+        component: () => import('@/views/2022/birthdayGift'),
+        meta: {
+          transition : 'bounceIn'
+        }
       },
       {
         path: 'hundredDays',

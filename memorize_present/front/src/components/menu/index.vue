@@ -46,18 +46,18 @@ export default {
   },
   methods: {
     async openMenu(index) {
-      if(this.openIndex == index) return
+      if (this.openIndex == index) return;
       this.openIndex = 0;
       // menu1-todo 目前这里字面量写法，未来改成按年份调用接口
       let res = await MB13401({ id: index });
       this.sonMenu = res.data;
       let timer = setTimeout(() => {
-        clearTimeout(timer)
+        clearTimeout(timer);
         this.openIndex = index;
-      },300)
+      }, 300);
     },
     gotoPage(item) {
-      if(item.disabled) return
+      if (item.disabled) return;
       this.$router.push(item.path);
     },
   },
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="less">
-@itemWidth : 390px;
+@itemWidth: 390px;
 #menuWrap {
   box-sizing: border-box;
   .back_wrap {
@@ -120,16 +120,16 @@ export default {
     //animation: bounce-in 0.5s;
   }
   /* 可以为进入和离开动画设置不同的持续时间和动画函数 */
-  .v-enter-from{
+  .v-enter-from {
     transform: scaleX(0);
     transform-origin: left;
     opacity: 0;
   }
 }
 @media screen and (max-width: 430px) {
-  @itemWidth : 48vw;
+  @itemWidth: 48vw;
   #menuWrap {
-    .back_wrap{
+    .back_wrap {
       width: 100vw;
       height: 99vh;
       background-size: 100vw;
