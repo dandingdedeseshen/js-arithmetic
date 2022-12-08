@@ -2,10 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import arr2022 from './2022'
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'menu',
+  //   component: () => import('@/components/menu')
+  // },
   {
     path: '/',
-    name: 'menu',
-    component: () => import('@/components/menu')
+    name: 'login',
+    component: () => import('@/components/login')
   },
 ]
 
