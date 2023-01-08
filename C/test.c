@@ -44,23 +44,31 @@
 // }
 
 // 从两边遍历字符串
-int operateStr(){
-   char str1[] = "hello world!!!!";
-   char str2[] = "###############";
-   int len = sizeof(str1)/sizeof(str1[0]);
-   int left = 0;
-   int right = len - 1;
-   for(int i = 0; i < len / 2; i++){
-      Sleep(1000);
-      system("cls");
-      str2[left + i] = str1[left + i];
-      str2[right - i] = str1[right - i];
-      printf("%s\n",str2);
-   }
+// int operateStr(){
+//    char str1[] = "hello world!!!!";
+//    char str2[] = "###############";
+//    int len = sizeof(str1)/sizeof(str1[0]);
+//    int left = 0;
+//    int right = len - 1;
+//    for(int i = 0; i < len / 2; i++){
+//       Sleep(1000);
+//       system("cls");
+//       str2[left + i] = str1[left + i];
+//       str2[right - i] = str1[right - i];
+//       printf("%s\n",str2);
+//    }
+// }
+
+// sizeof和strlen的区别
+int diff(){
+   char str[1] = "1234567890";
+   printf("%d\n",sizeof(str));
+   printf("%d\n",strlen(str));
 }
+
 int main()
 {
-   operateStr();
+   diff();
    // vscode调试临时使用防止弹窗关闭 没有啥意义
    int asd = 0;
    printf("执行完毕可以关闭窗口啦!");
