@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>back</div>
     <div class="first_wrap" v-show="flag == 1">
       <div class="back_wrap"></div>
       <div class="text">
@@ -65,12 +66,23 @@
     </transition>
     <transition enter-active-class="animated fadeIn">
       <div  class="thrid_wrap" v-show="flag == 3">
-        <div class="back_wrap"></div>
-        <div class="text1">
-          <div class="animated fadeInDown">首先看到的是</div>
-         
+        <div v-for="i of 7" :class="activeClass(i) + ' transparent'" :key="i">
+          <img :src="imgArr[i + 2]">
+          <div :class="'message text' + i % 2">{{message[i - 1]}}</div>
+          <div class="animated fadeInUp btn" style="--delay:1s" v-show=" activeImgIndex == 6">
+            <div class="memorizeBtn" @click="() => {flag = 4}">继续前进</div>
+          </div>
+        </div>
+        <div class="change-box" style="left:0" @click="activeImgIndex--" v-show="activeImgIndex > 1">
+          <span class="iconfont icon-jiantouzuo-copy"></span>
+        </div>
+        <div class="change-box" style="right:0" @click="activeImgIndex++" v-show="activeImgIndex < 6">
+          <span class="iconfont icon-jiantouyou"></span>
         </div>
       </div>
+    </transition>
+    <transition enter-active-class="animated fadeIn">
+      <div  class="fort_wrap" v-show="flag == 4"></div>
     </transition>
   </div>
 </template>
@@ -79,8 +91,26 @@
 import { ref } from "vue";
 import dayjs from "dayjs";
 
-let flag = ref(1)
-
+// 页面变量
+let flag = ref(1)   //页面标记
+let activeImgIndex = ref(1) // 轮播图激活图片
+let activeClass = (i) => {
+  switch(activeImgIndex.value){
+    case i - 1 :
+      return 'back_wrap-left'
+    case i :
+      return 'back_wrap'
+    case i + 1 :
+      return 'back_wrap-right'
+    default:
+      return 'none'
+  }
+}
+// 12617  5136 211.71
+const message = ['在我们认识的这段时间里','微信聊天成了日常','我们聊天使用最频繁的词是"哈哈哈"（确实欢乐）','当然重头还是通话',
+'小曹你知道吗,咱们目前总共打电话211.71小时','也就是说这段时间里咱们促膝长谈了9天,想想就幸福，嘿嘿嘿ヾ(✿ﾟ▽ﾟ)ノ']
+// 逻辑变量
+let imgArr = []
 const date = dayjs("2022-07-19 21:29:00");
 let ss = ref(0),
   mm = ref(0),
@@ -92,6 +122,11 @@ let s = ref(0),
   h = ref(0),
   d = ref(0),
   y = ref(0);
+
+for(let i = 1; i < 10; i++){
+  imgArr.push(require(`./asset/back (${i}).jpg`))
+}
+
 let computeTime = () => {
   let now = dayjs();
   yy.value = now.diff(date, "year");
@@ -120,9 +155,6 @@ const timer = setInterval(() => {
   computeAllTime();
 }, 1000);
 
-// onDestroyed(() => {
-//   clearInterval(timer)
-// })
 </script>
 
 <style lang="less">
@@ -168,7 +200,7 @@ div.animated{
   position: relative;
   .back_wrap{
     right: 0;
-    background: url('./asset/back (6).jpg');
+    background: url('./asset/back (1).jpg');
     background-size: 100% 100%;
   }
   .text {
@@ -185,28 +217,87 @@ div.animated{
   position: relative;
   .back_wrap{
     left  : 0;
-    background: url('./asset/back (3).jpg');
+    background: url('./asset/back (2).jpg');
     background-size: 100% 100%;
   }
   .text {
     text-align: right;
     color: var(--theme-color2);
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 .thrid_wrap{
   position: relative;
+  .transparent{
+    transition: all 2s ease;
+    transform: rotateY(180);
+  }
+  .back_wrap-left{
+    position: absolute;
+    left : 0;
+    z-index: 1;
+    transform:scaleY(.9);
+    opacity: .5;
+  }
   .back_wrap{
-    left  : 0;
-    background: url('./asset/back (4).jpg');
-    background-size: 100% 100%;
+    left : calc((100vw - 46vh) / 2);
+    right : calc((100vw - 46vh) / 2);
+    z-index: 2;
+    box-shadow: 0 8px 16px var(--theme-color1);
+    opacity: 1;
   }
-  .text1 {
-    text-align: right;
-    color: var(--theme-color1);
+  .back_wrap-right{
+    position: absolute;
+    right : 0;
+    z-index: 1;
+    transform:scaleY(.9);
+    opacity: .5;
   }
-  .text2 {
-    text-align: right;
+  .none{
+    display: none;
+  }
+  img{
+    width: 46vh;
+    height: 100vh;
+  }
+  .change-box{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    opacity: .7;
+    top: 40vh;
+    z-index: 3;
+    font-weight: 800;
+    .iconfont{
+      font-size: 20px !important;
+    } 
+  }
+  .message{
+    text-align: center;
+    position: inherit;
+    top: 10px;
+    width: 46vh;
+    border-radius: 8px;
+    background: white;
+    opacity: .9;
+  }
+  .memorizeBtn{
+    position: inherit;
+    bottom: 30px;
+  }
+  .text0 {
     color: var(--theme-color2);
   }
+  .text1 {
+    color: var(--theme-color1);
+  }
+}
+.fort_wrap{
+  width: 100vw;
+  height: 100vh;
+  background: url('./asset/img.jpg');
+  background-size: 100vw 100vw;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
 }
 </style>

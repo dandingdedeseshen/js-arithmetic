@@ -8,7 +8,7 @@ const res1 = {
     },
     {
       id:1,
-      text:'100天了!!!',
+      text:'4个月了',
       path:'/2022/hundredDays'
     },
     {

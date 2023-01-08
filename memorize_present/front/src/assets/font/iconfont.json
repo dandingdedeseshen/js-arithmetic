@@ -27,13 +27,6 @@
       "unicode_decimal": 58924
     },
     {
-      "icon_id": "2674927",
-      "name": "箭头 上",
-      "font_class": "jiantoushang1",
-      "unicode": "e62d",
-      "unicode_decimal": 58925
-    },
-    {
       "icon_id": "2674928",
       "name": "箭头 右",
       "font_class": "jiantouyou",
@@ -46,6 +39,13 @@
       "font_class": "jiantouxia",
       "unicode": "e62f",
       "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "32569311",
+      "name": "箭头 右-copy",
+      "font_class": "jiantouzuo-copy",
+      "unicode": "ee61",
+      "unicode_decimal": 61025
     }
   ]
 }
