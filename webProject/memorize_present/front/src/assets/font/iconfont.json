@@ -1,0 +1,51 @@
+{
+  "id": "3613884",
+  "name": "memorize_present",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12388972",
+      "name": "gift",
+      "font_class": "gift",
+      "unicode": "ee60",
+      "unicode_decimal": 61024
+    },
+    {
+      "icon_id": "20218763",
+      "name": "si-glyph-birthday-cake",
+      "font_class": "si-glyph-birthday-cake",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "2674878",
+      "name": "箭头 上",
+      "font_class": "jiantoushang",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "2674928",
+      "name": "箭头 右",
+      "font_class": "jiantouyou",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "2674929",
+      "name": "箭头 下",
+      "font_class": "jiantouxia",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "32569311",
+      "name": "箭头 右-copy",
+      "font_class": "jiantouzuo-copy",
+      "unicode": "ee61",
+      "unicode_decimal": 61025
+    }
+  ]
+}

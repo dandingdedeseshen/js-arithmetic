@@ -1,0 +1,25 @@
+/* 修改基本标签样式要限制在类名为hzl的盒子里不然会影响组件的样式 */
+.hzl .font,
+.hzl text{
+	font-size: 24px;
+	font-family: "Microsoft YaHei";
+	font-weight: 400;
+}
+.hzl input,
+.hzl button{
+	background: #FFFFFF;
+	border: 1px #bfbfbf solid;
+	border-radius: 12rpx;
+	line-height: 50rpx;
+	text-indent: 10rpx;
+	font-size: 32rpx;
+	height:50rpx;
+}
+.content{
+	padding: 20rpx;
+	background-color: #FFFFFF;
+}
+.padding-middle{
+	padding: 20rpx;
+}
+
