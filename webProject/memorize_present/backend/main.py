@@ -12,19 +12,34 @@ def fun():
 # 登录接口
 @app.route('/login', methods=['POST', 'OPTIONS'])
 def login():
+    # TODO 获取加密数据判断登录状态
     try:
-        parm = request.get_json(force=True)  
-        if bool(parm):
-            if(bool(parm['userName'])):
-                filter = "AND User_name = '{}'".format(parm['userName'])
-            else:
-                filter = ''
-        else:
-            filter = ''
-        data = Sql.select('*','User_message',filter)
+        data = Sql.login(request.get_json(force=True))
         return make_response(jsonify(data))
-    except:
-        return 'null'
+    except Exception as e:
+        data = {
+            'result':e.__str__()
+        }
+        return make_response(data)
+
+# 登录接口
+@app.route('/saveFile', methods=['POST', 'OPTIONS'])
+def saveFile():
+    try:
+        f = request.files['file']
+        # f = request.form.get('bam')
+        # 获取文件名
+        print(f.fileName)
+        f.save('./uploaded_file.jpg')
+        return {
+            'aa':123
+        }
+    except Exception as e:
+        print(e)
+        data = {
+            'result':e.__str__()
+        }
+        return make_response(data)
 
 if __name__ == '__main__':
     app.run(host= '0.0.0.0',port = 5000 ,debug = True)

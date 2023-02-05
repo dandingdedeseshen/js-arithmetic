@@ -22,6 +22,11 @@ const res2 = {
   data: [
     {
       id:0,
+      text:'上传图片',
+      path:'/2023/updateFile'
+    }, 
+    {
+      id:1,
       text:'敬请期待。。。',
       disabled:true
     }

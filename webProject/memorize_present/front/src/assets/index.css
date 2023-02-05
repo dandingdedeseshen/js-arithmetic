@@ -1,11 +1,13 @@
 *{
   margin: 0;
   padding: 0;
-  --font-color: #9151A6;
+  --font-color: #9151a6;
   --border-color: #9151A6;
   --basck-color: #9151A6;
   --theme-color1: #0091FF;
   --theme-color2:#CD3C10;
+  --theme-color3: #0091ff41;
+  --theme-color4:#CD3C1041;
 }
 .disabled{
   cursor:not-allowed !important;

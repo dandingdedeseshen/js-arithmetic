@@ -10,4 +10,8 @@ import './assets/font/iconfont.css'  // 字体
 import 'element-plus/dist/index.css' // element样式
 import 'animate.css'                 // 动画库
 
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
+let vue = createApp(App)
+// 设置全局变量
+vue.config.globalProperties.router = router
+
+vue.use(store).use(router).use(ElementPlus).mount('#app')
