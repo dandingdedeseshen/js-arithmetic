@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.1",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
@@ -22,7 +23,8 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "postcss-pxtorem": "^6.0.0"
   },
   "browserslist": [
     "> 1%",

@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1126",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "658956",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "5121528",
+      "name": "压缩包",
+      "font_class": "yasuobao",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
       "icon_id": "12388972",
       "name": "gift",
       "font_class": "gift",

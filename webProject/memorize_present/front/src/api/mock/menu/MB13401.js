@@ -32,5 +32,5 @@ const res2 = {
     }
   ]
 }
-
-export {res1,res2}
+let arr = [res1, res2]
+export {arr}

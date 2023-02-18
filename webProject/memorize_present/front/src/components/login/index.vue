@@ -9,9 +9,10 @@
 </template>
 <script setup>
 import { ElMessage } from 'element-plus'
-import { login } from "@/api/index";
+import api from "@/api/index";
 import { ref,getCurrentInstance } from 'vue'
 
+let { login } = api
 let { proxy } = getCurrentInstance()
 let userName = ref('')
 let password = ref('')
@@ -58,7 +59,7 @@ const loginEvent = async () =>{
   }
   // TODO 加密传送
   let res = await login(data)
-  res = res ? res.data[0] : ''
+  res = res[0]
   if(res && res.Password == password.value){
     loginSuccess(res)
   }else{
@@ -76,9 +77,12 @@ const loginEvent = async () =>{
 .loginWrap{
   background-image: url('./back.jpg');
   background-size: cover;
-  height: 60vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 100vh;
   width: 100vw;
-  padding-top: 40vh;
+  display: flex;
+  align-items: center;
   .card{
     height: 150px;
     display: flex;

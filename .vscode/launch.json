@@ -43,10 +43,10 @@
         "console": "integratedTerminal",
         "justMyCode": true, //只调试自己的Code
         "args": ["examples\\benchmarks\\LightGBM\\workflow_config_lightgbm_Alpha158_l1.yaml"], //需要输入的参数
-        "python": "${command:python.interpreterPath}",
         "env": {"PYTHONPATH":"${workspaceRoot}"},
         "envFile": "${workspaceRoot}/.env",
         "redirectOutput": true,
+        "python": "${command:python.interpreterPath}",
     }
 ]
 }

@@ -65,17 +65,18 @@ export default {
 </script>
 
 <style lang="less">
-@itemWidth: 390px;
+@itemWidth: 180px;;
 #menuWrap {
   box-sizing: border-box;
   .back_wrap {
+    font-size: 15px;
     padding-top: 5px;
-    width: 800px;
+    width: 375px;
     height: 99vh;
     margin: 0 auto;
     background-image: url("./assets/back.jpg");
     background-repeat: no-repeat;
-    background-size: 800px;
+    background-size: 375px 100vh;
     display: flex;
   }
   .menu_mid_wrap {
@@ -104,7 +105,6 @@ export default {
     .text {
       width: 100%;
       text-align: center;
-      font-size: 20px;
       font-weight: 600px;
     }
     .iconfont {
@@ -124,19 +124,6 @@ export default {
     transform: scaleX(0);
     transform-origin: left;
     opacity: 0;
-  }
-}
-@media screen and (max-width: 430px) {
-  @itemWidth: 48vw;
-  #menuWrap {
-    .back_wrap {
-      width: 100vw;
-      height: 99vh;
-      background-size: 100vw;
-    }
-    .menu_mid_wrap {
-      width: @itemWidth;
-    }
   }
 }
 </style>

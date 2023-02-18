@@ -9,6 +9,7 @@ import "./assets/index.css";         // 公共样式
 import './assets/font/iconfont.css'  // 字体
 import 'element-plus/dist/index.css' // element样式
 import 'animate.css'                 // 动画库
+import 'amfe-flexible'               // 移动端适配
 
 let vue = createApp(App)
 // 设置全局变量

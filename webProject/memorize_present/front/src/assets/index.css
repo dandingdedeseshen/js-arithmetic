@@ -25,6 +25,15 @@
   border-radius: 3px;
 }
 
+.el-overlay.is-message-box .el-overlay-message-box::after{
+  display: none !important;
+}
+.el-overlay.is-message-box .el-overlay-message-box{
+  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+}
+
 /* 滚动条整体部分
   ::-webkit-scrollbar 
   滚动条里面的小方块，能上下左右移动的那个
