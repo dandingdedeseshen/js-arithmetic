@@ -42,11 +42,18 @@ export default {
     return {
       openIndex: 0,
       sonMenu: [],
+      user:{}
     };
+  },
+  created() {
+    this.user = JSON.parse(localStorage.getItem('userData'))
   },
   methods: {
     async openMenu(index) {
       if (this.openIndex == index) return;
+      if(index == 1 && this.user.User_name !== 'xiaoliu' && this.user.User_name !== 'xiaocao'){
+        return
+      }
       this.openIndex = 0;
       // menu1-todo 目前这里字面量写法，未来改成按年份调用接口
       let res = await MB13401({ id: index });

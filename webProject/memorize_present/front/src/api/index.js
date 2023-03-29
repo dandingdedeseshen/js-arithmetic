@@ -6,6 +6,16 @@ import { ElMessageBox } from 'element-plus'
 axios.interceptors.request.use(
   function (config) {
     // 在发送请求之前做些什么
+    let user = JSON.parse(localStorage.getItem('userData'))
+    let flag = config.extraData ? !config.extraData.noUser : true
+    if(user && user.User_name && flag ){
+      config.data = JSON.parse(config.data)
+      config.data.user = {
+        userName : user.User_name,
+        identity : user.Is_baby == 1
+      }
+      config.data = JSON.stringify(config.data)
+    }
     return config;
   },
   function (error) {

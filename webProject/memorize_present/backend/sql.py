@@ -3,7 +3,12 @@ from const import sql
 import time
 
 # 连接数据库
-conn = pymysql.connect(host=sql['host'], port = sql['port'], user=sql['user'], password=sql['password'], database=sql['database'],charset='utf8')   
+conn = pymysql.connect(host=sql['host'], port = sql['port'], user=sql['user'], password=sql['password'], database=sql['database'],charset='utf8')  
+
+# 配置自动提交模式防止sql长时间未响应关闭
+conn.autocommit(True)
+conn.timeout = 60 * 60 * 5
+
 cursor = conn.cursor(cursor = pymysql.cursors.DictCursor)  #配置数据返回格式为字典型
  # 通用查找
 def select(name,fromName,filterSql):
@@ -15,7 +20,7 @@ def select(name,fromName,filterSql):
 
  # 通用查找-没有伪删
 def selectDel(name,fromName,filterSql):
-    sql = 'SELECT {} FROM {} {}'.format(str(name),str(fromName),str(filterSql))
+    sql = 'SELECT {} FROM {} WHERE 1=1 {}'.format(str(name),str(fromName),str(filterSql))
     data = cursor.execute(sql)
     data = cursor.fetchall() 
     conn.commit()
@@ -57,6 +62,8 @@ class Sql():
         if bool(parm):
             if('userName' in parm):
                 filter = "AND Upload_user = '{}'".format(parm['userName'])
+            if('identity' in parm and not parm['identity']):
+                filter = "AND Upload_user != 'xiaoliu' AND Upload_user != 'xiaocao'"
         return selectDel('*','File_message',filter)
     
 

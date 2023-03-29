@@ -18,14 +18,16 @@ let fileList = ref([])
 
 const upload = async (e) => {
   let file = e.target.files[0];
+  let user = JSON.parse(localStorage.getItem('userData'))
   let data = new FormData();
   data.append("file", file);
+  data.append("userName", user.User_name);
   await uploadFile(data);
   getFileList();
 };
 
 const getFileList = async (e) => {
-  let res = await findFile({a:1}, {b:2});
+  let res = await findFile();
   fileList.value = res
 };
 

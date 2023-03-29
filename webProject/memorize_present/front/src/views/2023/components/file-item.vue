@@ -1,11 +1,14 @@
 <template>
-  <div id="fileItem_2023">
+  <div id="fileItem_2023" @click="getFileRes">
     <span :class="['iconfont', fileIco(devName)]" />
     <p class="text">{{ fileName }}</p>
   </div>
 </template>
 
 <script setup>
+import  api  from "@/api/index";
+let { getFile } = api
+
 let prop = defineProps({
   fileName: {
     type: String,
@@ -13,6 +16,7 @@ let prop = defineProps({
   },
 });
 
+// 根据问价类型获取文件图标
 const fileIco = (type) => {
   switch(type){
     case 'jpg':
@@ -32,6 +36,18 @@ const fileIco = (type) => {
 }
 
 let devName = prop.fileName.match(/[a-z]+$/g) ? prop.fileName.match(/[a-z]+$/g)[0].toLowerCase() : ''
+
+const getFileRes = async () => {
+  let res = await getFile({fileName : prop.fileName})
+  const url = window.URL.createObjectURL(res)
+  const link = document.createElement('a')
+  link.style.display = 'none'
+  link.href = url
+  link.setAttribute('download', prop.fileName)
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 </script>
 
 <style lang="less">
