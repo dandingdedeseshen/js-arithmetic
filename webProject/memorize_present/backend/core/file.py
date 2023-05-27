@@ -1,30 +1,11 @@
-from flask import Flask, request, jsonify, make_response, Response
-from sql import Sql
-from flask_cors import *
+from flask import Blueprint, request, jsonify, make_response, Response
 import os
+from sql.sql import Sql
 
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
-
-@app.route('/') 
-def fun():
-    return '欢迎来到淡定的得瑟神的秘密基地!!!!!!!'
-    
-# 登录接口
-@app.route('/login', methods=['POST', 'OPTIONS'])
-def login():
-    # TODO 获取加密数据判断登录状态
-    try:
-        data = Sql.login(request.get_json(force=True))
-        return make_response(jsonify(data))
-    except Exception as e:
-        data = {
-            'result':e.__str__()
-        }
-        return make_response(jsonify(data)), 500
+file = Blueprint('file', __name__)
 
 # 上传文件接口
-@app.route('/saveFile', methods=['POST', 'OPTIONS'])
+@file.route('/saveFile', methods=['POST', 'OPTIONS'])
 def saveFile():
     try:
         f = request.files['file']
@@ -54,7 +35,7 @@ def saveFile():
         return make_response(jsonify(data)), 500
 
 # 查看文件列表接口
-@app.route('/findFile', methods=['POST'])
+@file.route('/findFile', methods=['POST'])
 def findFile():
     try:
         parm = request.get_json(force=True)
@@ -70,7 +51,7 @@ def findFile():
         return make_response(jsonify(data)), 500
 
 # 获取文件接口
-@app.route('/getFile', methods=['POST'])
+@file.route('/getFile', methods=['POST'])
 def getFile():
     try:
         data = request.get_json(force=True)
@@ -86,7 +67,3 @@ def getFile():
             'result':e.__str__()
         }
         return make_response(jsonify(data)), 500
-
-if __name__ == '__main__':
-    # app.run(host= '0.0.0.0',port = 5000 ,debug = True)
-    app.run(host= '0.0.0.0',port = 5000 ,debug = True, use_debugger=False, use_reloader=False)

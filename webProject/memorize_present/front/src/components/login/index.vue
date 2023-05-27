@@ -2,7 +2,7 @@
   <div class="loginWrap">
     <div class="card">
       <el-input v-model="userName" clearable />
-      <el-input v-model="password" clearable />
+      <el-input v-model="password" type="password" clearable />
       <el-button @click="loginEvent">登录</el-button>
     </div>
   </div>

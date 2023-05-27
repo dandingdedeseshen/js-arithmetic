@@ -1,10 +1,7 @@
 Flask==2.2.2
-flask_cors==3.0.10
-pymysql==1.0.2
-
-# 安装组件
-# pip install pipreqs
-# 在当前?录?成
-# pipreqs . --encoding=utf8 --forc
-# 安装
-# pip install -r requirements.txt
+Flask_Cors==3.0.10
+jieba==0.42.1
+opencv_python==4.6.0.66
+PyMySQL==1.0.2
+timeloop==1.0.2
+wordcloud==1.8.2.2
